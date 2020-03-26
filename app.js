@@ -4,6 +4,7 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const log = require('log-to-file');
 const router = express.Router();
+app.use(express.static('public'));
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 
