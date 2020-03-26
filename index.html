@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Become a Corona Warrior</title>
+	<title>Html Template</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<style>
 		*{margin:0; padding:0; box-sizing:border-box;}
@@ -44,13 +44,13 @@
 			border:1px solid #CCCCCC;
 			height:40px;
 			border-radius:3px;
-			width:79%;
+			width:40%;
 			padding:0 10px; 
 		}
 		select{
 			border:1px solid #CCCCCC;
 			height:40px; background:#FFFFFF;
-			width:20%; padding:0 10px;
+			width:40%; padding:0 10px;
 		}
 		input:focus,select:focus,textarea:focus{
 			outline:0;
@@ -58,7 +58,7 @@
 		textarea{
 			border:1px solid #CCCCCC;
 			height:100px;
-			width:79%;
+			width:40%;
 			padding:10px;
 		}
 		.submit{
@@ -136,12 +136,12 @@
 <body>
 <div class="container-fluid">
 	<div class="banner"></div>
-	<p>Here is your chance to fight against Corona by joining the Red cross, Karnataka and the DIPR (the Dept of Information and Public Relations, Govt of Karnataka) as a volunteer, in fighting the information war against Corona.</p>
-	<form>
+	<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.</p>
+	<form action="/" method="POST">
 			<h2>Submit a ticket</h2>
 			<div class="form-group">
 				<label>Phone Number<span>*</span></label>
-				<input type="text" />
+				<input type="text" name="phone"/>
 			</div>
 			<div class="form-group">
 				<label>Location<span>*</span></label>									
@@ -178,20 +178,20 @@
 			</div>
 			<div class="form-group">
 				<label>Email<span>*</span></label>
-				<input type="email" />
+				<input type="email" name="email"/>
 			</div>
 			<div class="form-group">
 				<label>Subject<span>*</span></label>
-				<input type="text" />
+				<input type="text" name="subject"/>
 			</div>
 			<div class="form-group">
-				<label>Phone Number<span>*</span></label>
-				<textarea></textarea>
+				<label>How can we help?<span>*</span></label>
+				<textarea name="message"></textarea>
 			</div>
 			<div class="form-group">
-			<label></label>
-			<button class="submit">Submit</button>
-			<button class="cancel">Cancel</button>
+				<label></label>
+				<button class="submit" type="submit">Submit</button>
+				<button class="cancel">Cancel</button>
 			</div>
 	</form>
 </div>

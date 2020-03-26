@@ -4,6 +4,7 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const log = require('log-to-file');
 const router = express.Router();
+const unirest = require('unirest');
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
@@ -14,8 +15,42 @@ router.get('/',function(req,res) {
 
 app.post('/',function(req, res, next) {
 	log(JSON.stringify(req.body), 'requests.log');
-	console.log(req.body);
-	res.status(200).json({});
+
+	var API_KEY = "AvcKRaWqL1yUfP6sImn";
+	var FD_ENDPOINT = "coronawarriors";
+	
+	var PATH = "/api/v2/tickets";
+	var URL =  "https://" + FD_ENDPOINT + ".freshdesk.com"+ PATH;
+	
+	var fields = {
+		'email': req.body.email,
+		'subject': req.body.subject,
+		'description': req.body.message,
+		'status': 2,
+		'priority': 4
+	}
+	
+	var Request = unirest.post(URL);
+	
+	Request.auth({
+		user: API_KEY,
+		pass: "X",
+		sendImmediately: true
+	})
+	.type('json')
+	.send(fields)
+	.end(function(response) {
+		console.log(response.body)
+		console.log("Response Status : " + response.status)
+		if(response.status == 201) {
+			console.log("Location Header : "+ response.headers['location'])
+		}
+		else{
+			console.log("X-Request-Id :" + response.headers['x-request-id']);
+		}
+	});
+	
+	res.sendFile(path.join(__dirname+'/success.html'));
 });
 app.use('/', router);
 module.exports = app;
