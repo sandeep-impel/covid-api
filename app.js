@@ -9,6 +9,15 @@ app.use(express.static('public'));
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 
+const logRequestStart = (req, res, next) => {
+    res.on('finish', () => {
+        console.info(`${req.method} ${req.originalUrl} ${res.statusCode} ${res.statusMessage}; ${res.get('Content-Length') || 0}b sent`)
+    })    
+    next();
+}
+
+app.use(logRequestStart);
+
 router.get('/',function(req,res) {
 	res.sendFile(path.join(__dirname+'/index.html'));
 });
