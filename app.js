@@ -23,9 +23,9 @@ router.get('/',function(req,res) {
 });
 
 app.post('/',function(req, res, next) {
-	req.body["custom_fields"] = {
-		"location" : req.body.location
-	};
+	// req.body["custom_fields"] = {
+	// 	"location" : req.body.location
+	// };
 
 	log(JSON.stringify(req.body), 'requests.log');
 
@@ -39,6 +39,10 @@ app.post('/',function(req, res, next) {
 		'email': req.body.email,
 		'subject': req.body.subject,
 		'description': req.body.message,
+		'custom_fields': {
+			"cf_phone_number": parseInt(req.body.phone),
+			"cf_city": req.body.city
+		},
 		'status': 2,
 		'priority': 4
 	}
