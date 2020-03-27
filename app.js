@@ -44,7 +44,8 @@ app.post('/',function(req, res, next) {
 			"cf_city": req.body.city
 		},
 		'status': 2,
-		'priority': 4
+		'priority': 4,
+		'group_id': 81000101084
 	}
 	
 	var Request = unirest.post(URL);
