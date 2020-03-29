@@ -1,6 +1,6 @@
 # Covid API Server
 
-# Steps to Setup on your Local Machine
+## Steps to Setup on your Local Machine
 
 ### 1. Clone this project and install npm modules :
 
