@@ -23,10 +23,6 @@ router.get('/',function(req,res) {
 });
 
 app.post('/',function(req, res, next) {
-	// req.body["custom_fields"] = {
-	// 	"location" : req.body.location
-	// };
-
 	log(JSON.stringify(req.body), 'requests.log');
 
 	var API_KEY = "AvcKRaWqL1yUfP6sImn";
